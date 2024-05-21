@@ -1,6 +1,7 @@
 let numberOne;
 let operator;
 let numberTwo;
+let displayValue = document.querySelector('.display');
 
 function add (a, b) {
   return a + b
@@ -34,3 +35,4 @@ function operate (a, b) {
       break;
   };
 };
+
