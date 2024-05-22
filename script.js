@@ -16,6 +16,18 @@ buttons.forEach((button) => {
   displayValue.textContent = button.textContent);
 });
 
+function numberOneValue (buttonTextContent) {
+  initialValue = [];
+  if (initialValue.lenght == 0) {
+    finalValue = initalValue.push(buttonTextContent);
+  } else {
+    finalValue.push(buttonTextContent)
+  }
+}
+
+
+
+
 //display value as object?
 //first, push all clicked numbers to an array nubmerOne;
 // value => array => push => array to value
