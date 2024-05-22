@@ -1,7 +1,13 @@
 let numberOne;
 let operator;
 let numberTwo;
-let displayValue = document.querySelector('.display');
+let displayValue = document.querySelector('.display p');
+let buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => 
+  displayValue.textContent = button.textContent);
+});
 
 function add (a, b) {
   return a + b
