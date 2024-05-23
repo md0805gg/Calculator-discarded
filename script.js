@@ -1,7 +1,11 @@
-let numberOne;
-let operator;
-let numberTwo;
-let displayValue = document.querySelector('.display');
+let displayValue = document.querySelector('.display p');
+
+let calculator = {
+  valueOne: 'one',
+  valueTwo: 'two',
+  operator: '+',
+  funalValue: 'three'
+}
 
 function add (a, b) {
   return a + b
