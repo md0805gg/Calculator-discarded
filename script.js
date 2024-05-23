@@ -7,6 +7,8 @@ let calculator = {
   funalValue: 'three'
 }
 
+displayValue.textContent = `${calculator.valueOne} ${calculator.operator} ${calculator.valueTwo}`;
+
 function add (a, b) {
   return a + b
 };
