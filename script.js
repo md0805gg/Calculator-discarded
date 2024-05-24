@@ -1,10 +1,14 @@
+//current errors:
+// 2 + 2 =   adds 0 to first numberButtons
+// operaton returns undefined
+
 let displayValue = document.querySelector('.display p');
 
 let calculator = {
   valueOne: [],
   valueTwo: [],
   operator: '',
-  finalValue: 'three'
+  finalValue: ''
 }
 
 let numberButtons = document.querySelectorAll('.button-number');
@@ -35,8 +39,16 @@ button.addEventListener('click', () => {
 )
 
 function updateDisplayValue() {
-  displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')}`
+  displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')} ${calculator.finalValue}`
 };
+
+let operateButton = document.querySelector('.button-operate');
+
+operateButton.addEventListener('click', () => {
+  finalNumber = operate(parseInt(calculator.valueOne), parseInt(calculator.valueTwo));
+  calculator.finalValue = `= ${finalNumber}`;
+  updateDisplayValue();  
+})
 
 function add (a, b) {
   return a + b
@@ -55,6 +67,10 @@ function divide (a, b) {
 };
 
 function operate (a, b) {
+  if (calculator.operator.length == 0) {
+    return
+  } else {
+    operator = calculator.operator;
   switch (operator) {
     case '+':
       add (a, b);
@@ -69,5 +85,7 @@ function operate (a, b) {
       divide (a, b);
       break;
   };
+  }
+  
 };
 
