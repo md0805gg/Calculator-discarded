@@ -2,7 +2,7 @@ let displayValue = document.querySelector('.display p');
 
 let calculator = {
   valueOne: [],
-  valueTwo: 'two',
+  valueTwo: [],
   operator: '',
   finalValue: 'three'
 }
@@ -11,7 +11,11 @@ let numberButtons = document.querySelectorAll('.button-number');
 
 numberButtons.forEach((button) => 
 button.addEventListener('click',() => {
+  if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0)) {
+  calculator.valueTwo.push(button.textContent);
+  } else {
   calculator.valueOne.push(button.textContent)
+  }
   updateDisplayValue();
 }
 ));
@@ -31,7 +35,7 @@ button.addEventListener('click', () => {
 )
 
 function updateDisplayValue() {
-  displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo}`
+  displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')}`
 };
 
 function add (a, b) {
