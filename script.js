@@ -3,7 +3,7 @@ let displayValue = document.querySelector('.display p');
 let calculator = {
   valueOne: [],
   valueTwo: 'two',
-  operator: '+',
+  operator: '',
   finalValue: 'three'
 }
 
@@ -15,6 +15,20 @@ button.addEventListener('click',() => {
   updateDisplayValue();
 }
 ));
+
+let operatorButtons = document.querySelectorAll('.button-operator');
+
+operatorButtons.forEach((button) =>
+button.addEventListener('click', () => {
+  if (calculator.operator.length == 0) {
+  calculator.valueOne.push(0);
+  calculator.operator = button.textContent;
+  updateDisplayValue();
+} else {
+  return;
+}
+})
+)
 
 function updateDisplayValue() {
   displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo}`
