@@ -4,7 +4,7 @@ let calculator = {
   valueOne: [],
   valueTwo: 'two',
   operator: '+',
-  funalValue: 'three'
+  finalValue: 'three'
 }
 
 let numberButtons = document.querySelectorAll('.button-number');
@@ -19,7 +19,6 @@ button.addEventListener('click',() => {
 function updateDisplayValue() {
   displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo}`
 };
-
 
 function add (a, b) {
   return a + b
