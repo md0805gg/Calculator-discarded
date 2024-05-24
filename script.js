@@ -1,13 +1,25 @@
 let displayValue = document.querySelector('.display p');
 
 let calculator = {
-  valueOne: 'one',
+  valueOne: [],
   valueTwo: 'two',
   operator: '+',
   funalValue: 'three'
 }
 
-displayValue.textContent = `${calculator.valueOne} ${calculator.operator} ${calculator.valueTwo}`;
+let buttons = document.querySelectorAll('.button-number');
+
+buttons.forEach((button) => 
+button.addEventListener('click',() => {
+  calculator.valueOne.push(button.textContent)
+  updateDisplayValue();
+}
+));
+
+function updateDisplayValue() {
+  displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo}`
+};
+
 
 function add (a, b) {
   return a + b
