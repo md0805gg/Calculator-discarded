@@ -7,9 +7,9 @@ let calculator = {
   funalValue: 'three'
 }
 
-let buttons = document.querySelectorAll('.button-number');
+let numberButtons = document.querySelectorAll('.button-number');
 
-buttons.forEach((button) => 
+numberButtons.forEach((button) => 
 button.addEventListener('click',() => {
   calculator.valueOne.push(button.textContent)
   updateDisplayValue();
