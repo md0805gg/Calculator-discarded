@@ -4,7 +4,8 @@
 //I can still add numbers to numberTwo after finishing the operation - solved
 //multiply does not work correctly on multiple number values - solved
 //I can change operator even if the operation is finished - solved
-// Pressing = before habing two numbers down - write down a condition
+// Pressing = before habing two numbers down - write down a condition - solved
+// Pressing = with one number and operator selected should utofill second number with number one (4 + 'click =' should give 4 + 4 = 16)
 //Unnecessary if conditonal and console log in the operate function
 
 //display value
@@ -23,12 +24,13 @@ let numberButtons = document.querySelectorAll('.button-number');
 
 numberButtons.forEach((button) => 
 button.addEventListener('click',() => {
-  if ( (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)) {
+  if ((calculator.operator.length == 0) && (calculator.valueTwo.length == 0) && (calculator.finalValue.length < 1)) {
     calculator.valueOne.push(button.textContent);
   }
   else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0 && calculator.finalValue.length == 0)) {
     calculator.valueTwo.push(button.textContent); 
-  } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0)) {
+  } else if (((calculator.valueOne.length > 0) && (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)) ||
+    ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0))) {
    return;
   }
   updateDisplayValue();
@@ -42,7 +44,8 @@ operatorButtons.forEach((button) =>
 button.addEventListener('click', () => {
   if ((calculator.operator.length == 0) && (calculator.valueOne.length < 1)) {
   calculator.valueOne.push(0);
-  } else if((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0)) {
+  } else if(((calculator.valueOne.length > 0) && (calculator.valueTwo.length == 0) && calculator.finalValue > 0) ||
+    ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0))) {
     return;
   } else {
   calculator.operator = button.textContent;
@@ -55,7 +58,11 @@ button.addEventListener('click', () => {
 let operateButton = document.querySelector('.button-operate');
 
 operateButton.addEventListener('click', () => {
+  if ((calculator.valueOne.length > 0) && (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)){
+    finalNumber = calculator.valueOne.join('');
+  } else {
   finalNumber = operate(parseInt(calculator.valueOne.join('')), parseInt(calculator.valueTwo.join('')));
+  }
   calculator.finalValue = `= ${finalNumber}`;
   updateDisplayValue();  
 })
@@ -85,7 +92,7 @@ function divide (a, b) {
 //operate function
 function operate (a, b) {
   if (calculator.operator.length == 0) {
-    console.log('dupa')
+    console.log('test')
   } else {
     operator = calculator.operator;
   switch (operator) {
