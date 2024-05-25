@@ -2,6 +2,7 @@
 // 2 + 2 =   adds 0 to first numberButtons - solved
 // operaton returns undefined
 //I can still add numbers to numberTwo after finishing the operation
+//multiply does not work correctly on multiple number values
 
 //display value
 let displayValue = document.querySelector('.display p');
@@ -79,22 +80,22 @@ function operate (a, b) {
     console.log('dupa')
   } else {
     operator = calculator.operator;
-  
   switch (operator) {
     case '+':
-      add (a, b);
+      calculator.finalNumber = add (a, b);
       break;
     case '-':
-      subtract (a, b);
+      calculator.finalNumber = subtract (a, b);
       break;
     case '*':
-      multiply (a, b);
+      calculator.finalNumber = multiply (a, b);
       break;
     case '/':
-      divide (a, b);
+      calculator.finalNumber = divide (a, b);
       break;
   };
   }
+  return calculator.finalNumber;
 }
   
 ;
