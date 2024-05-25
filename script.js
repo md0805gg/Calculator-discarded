@@ -41,7 +41,11 @@ button.addEventListener('click', () => {
   if ((calculator.operator.length == 0) && (calculator.valueOne.length < 1)) {
   calculator.valueOne.push(0);
   }
+  else if((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0)) {
+    return;
+  } else {
   calculator.operator = button.textContent;
+  }
   updateDisplayValue();
 
 })
