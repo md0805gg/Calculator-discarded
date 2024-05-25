@@ -1,8 +1,8 @@
 //current errors:
 // 2 + 2 =   adds 0 to first numberButtons - solved
-// operaton returns undefined
+// operaton returns undefined - solved
 //I can still add numbers to numberTwo after finishing the operation
-//multiply does not work correctly on multiple number values
+//multiply does not work correctly on multiple number values - solved
 
 //display value
 let displayValue = document.querySelector('.display p');
