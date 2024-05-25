@@ -3,7 +3,8 @@
 // operaton returns undefined - solved
 //I can still add numbers to numberTwo after finishing the operation - solved
 //multiply does not work correctly on multiple number values - solved
-//I can change operator even if the operation is finished
+//I can change operator even if the operation is finished - solved
+// Pressing = before habing two numbers down - write down a condition
 
 //display value
 let displayValue = document.querySelector('.display p');
@@ -40,14 +41,12 @@ operatorButtons.forEach((button) =>
 button.addEventListener('click', () => {
   if ((calculator.operator.length == 0) && (calculator.valueOne.length < 1)) {
   calculator.valueOne.push(0);
-  }
-  else if((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0)) {
+  } else if((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0)) {
     return;
   } else {
   calculator.operator = button.textContent;
   }
   updateDisplayValue();
-
 })
 )
 
