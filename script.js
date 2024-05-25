@@ -1,5 +1,5 @@
 //current errors:
-// 2 + 2 =   adds 0 to first numberButtons
+// 2 + 2 =   adds 0 to first numberButtons - solved
 // operaton returns undefined
 //I can still add numbers to numberTwo after finishing the operation
 
@@ -33,13 +33,12 @@ let operatorButtons = document.querySelectorAll('.button-operator');
 
 operatorButtons.forEach((button) =>
 button.addEventListener('click', () => {
-  if (calculator.operator.length == 0) {
+  if ((calculator.operator.length == 0) && (calculator.valueOne.length < 1)) {
   calculator.valueOne.push(0);
+  }
   calculator.operator = button.textContent;
   updateDisplayValue();
-} else {
-  return;
-}
+
 })
 )
 
@@ -77,10 +76,10 @@ function divide (a, b) {
 //operate function
 function operate (a, b) {
   if (calculator.operator.length == 0) {
-    return
+    console.log('dupa')
   } else {
     operator = calculator.operator;
-  }
+  
   switch (operator) {
     case '+':
       add (a, b);
@@ -96,6 +95,7 @@ function operate (a, b) {
       break;
   };
   }
+}
   
 ;
 
