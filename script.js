@@ -5,6 +5,7 @@
 //multiply does not work correctly on multiple number values - solved
 //I can change operator even if the operation is finished - solved
 // Pressing = before habing two numbers down - write down a condition
+//Unnecessary if conditonal and console log in the operate function
 
 //display value
 let displayValue = document.querySelector('.display p');
