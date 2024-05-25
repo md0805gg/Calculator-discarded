@@ -1,8 +1,9 @@
 //current errors:
 // 2 + 2 =   adds 0 to first numberButtons - solved
 // operaton returns undefined - solved
-//I can still add numbers to numberTwo after finishing the operation
+//I can still add numbers to numberTwo after finishing the operation - solved
 //multiply does not work correctly on multiple number values - solved
+//I can change operator even if the operation is finished
 
 //display value
 let displayValue = document.querySelector('.display p');
@@ -20,14 +21,17 @@ let numberButtons = document.querySelectorAll('.button-number');
 
 numberButtons.forEach((button) => 
 button.addEventListener('click',() => {
-  if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0)) {
-  calculator.valueTwo.push(button.textContent);
-  } else {
-  calculator.valueOne.push(button.textContent)
+  if ( (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)) {
+    calculator.valueOne.push(button.textContent);
+  }
+  else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0 && calculator.finalValue.length == 0)) {
+    calculator.valueTwo.push(button.textContent); 
+  } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0)) {
+   return;
   }
   updateDisplayValue();
-}
-));
+}))
+;
 
 //operator buttons event listener
 let operatorButtons = document.querySelectorAll('.button-operator');
