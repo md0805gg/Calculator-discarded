@@ -47,7 +47,7 @@ button.addEventListener('click', () => {
 let operateButton = document.querySelector('.button-operate');
 
 operateButton.addEventListener('click', () => {
-  finalNumber = operate(parseInt(calculator.valueOne), parseInt(calculator.valueTwo));
+  finalNumber = operate(parseInt(calculator.valueOne.join('')), parseInt(calculator.valueTwo.join('')));
   calculator.finalValue = `= ${finalNumber}`;
   updateDisplayValue();  
 })
