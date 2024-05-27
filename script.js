@@ -68,7 +68,11 @@ operateButton.addEventListener('click', () => {
   } else {
   finalNumber = operate(parseInt(calculator.valueOne.join('')), parseInt(calculator.valueTwo.join('')));
   }
-  calculator.finalValue = `= ${Math.round(finalNumber * 100) / 100}`;
+  if (finalNumber.toString().length > 6) {
+    calculator.finalValue = `= ${finalNumber.toFixed(6)}`;
+  } else {
+    calculator.finalValue = `= ${finalNumber}`;
+  };  
   updateDisplayValue();  
 })
 
