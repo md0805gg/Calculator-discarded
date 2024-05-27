@@ -94,10 +94,7 @@ function divide (a, b) {
 
 //operate function
 function operate (a, b) {
-  if (calculator.operator.length == 0) {
-    console.log('test')
-  } else {
-    operator = calculator.operator;
+  operator = calculator.operator;
   switch (operator) {
     case '+':
       calculator.finalNumber = add (a, b);
@@ -112,7 +109,6 @@ function operate (a, b) {
       calculator.finalNumber = divide (a, b);
       break;
   };
-  }
   return calculator.finalNumber;
 }
   
