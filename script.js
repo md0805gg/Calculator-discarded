@@ -60,6 +60,9 @@ let operateButton = document.querySelector('.button-operate');
 operateButton.addEventListener('click', () => {
   if ((calculator.valueOne.length > 0) && (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)){
     finalNumber = calculator.valueOne.join('');
+  } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length == 0)) {
+    calculator.valueTwo.push(calculator.valueOne);
+    finalNumber = operate(parseInt(calculator.valueOne.join('')), parseInt(calculator.valueTwo.join('')));
   } else {
   finalNumber = operate(parseInt(calculator.valueOne.join('')), parseInt(calculator.valueTwo.join('')));
   }
