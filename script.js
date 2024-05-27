@@ -112,5 +112,19 @@ function operate (a, b) {
   return calculator.finalNumber;
 }
   
-;
+//clear function
+function clearCalculator() {
+  for (key in calculator) {
+   if(Array.isArray(calculator[key])) {
+    calculator[key] = [];
+   } else {
+    calculator[key] = '';
+   };
+   updateDisplayValue(); 
+}};
+
+//clear button event listener
+let clearButton = document.querySelector('.button-clear');
+
+clearButton.addEventListener('click',clearCalculator);
 

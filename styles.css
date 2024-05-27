@@ -4,6 +4,7 @@
 }
 
 .display p {
+  height: 20px;
   display: flex;
   border: solid red;
   justify-content: center;
