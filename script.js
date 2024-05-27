@@ -5,8 +5,10 @@
 //multiply does not work correctly on multiple number values - solved
 //I can change operator even if the operation is finished - solved
 // Pressing = before habing two numbers down - write down a condition - solved
-// Pressing = with one number and operator selected should utofill second number with number one (4 + 'click =' should give 4 + 4 = 16)
-//Unnecessary if conditonal and console log in the operate function
+// Pressing = with one number and operator selected should utofill second number with number one (4 + 'click =' should give 4 + 4 = 16) - solved
+//Unnecessary if conditonal and console log in the operate function - solved
+//round numbers to 10 decimals max
+//read page for all reqs
 
 //display value
 let displayValue = document.querySelector('.display p');
