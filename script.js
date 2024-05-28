@@ -36,8 +36,12 @@ button.addEventListener('click',() => {
    return;
   }
   updateDisplayValue();
-}))
-;
+}));
+
+//dot button event listener
+let dotButton = document.querySelector('.button-dot');
+
+dotButton.addEventListener('click', () => console.log('test'));
 
 //operator buttons event listener
 let operatorButtons = document.querySelectorAll('.button-operator');
