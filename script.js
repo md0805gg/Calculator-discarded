@@ -68,7 +68,6 @@ operateButton.addEventListener('click', () => {
   } else {
   finalNumber = operate(parseInt(calculator.valueOne.join('')), parseInt(calculator.valueTwo.join('')));
   }
-  console.log(finalNumber);
   if ((finalNumber.toString().length > 6) && (typeof(finalNumber) !== 'string')) {
     calculator.finalValue = `= ${finalNumber.toFixed(6)}`;
   } else {
