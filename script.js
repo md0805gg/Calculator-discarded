@@ -36,13 +36,13 @@ let dotButton = document.querySelector('.button-dot');
 
 dotButton.addEventListener('click', numberPopulate);
 
-
-function numberPopulate () {
+//populate display with numbers/dot function
+function numberPopulate (event) {
   const button = event.target;
+  console.log(event.type);
   if ((calculator.operator.length == 0) && (calculator.valueTwo.length == 0) && (calculator.finalValue.length < 1)) {
     calculator.valueOne.push(button.textContent);
-  }
-  else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0 && calculator.finalValue.length == 0)) {
+  } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0 && calculator.finalValue.length == 0)) {
     calculator.valueTwo.push(button.textContent); 
   } else if (((calculator.valueOne.length > 0) && (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)) ||
     ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0))) {
@@ -58,7 +58,7 @@ operatorButtons.forEach((button) =>
 button.addEventListener('click', () => {
   if ((calculator.operator.length == 0) && (calculator.valueOne.length < 1)) {
   calculator.valueOne.push(0);
-  } else if(((calculator.valueOne.length > 0) && (calculator.valueTwo.length == 0) && calculator.finalValue > 0) ||
+  } else if (((calculator.valueOne.length > 0) && (calculator.valueTwo.length == 0) && calculator.finalValue > 0) ||
     ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0))) {
     return;
   } else {
