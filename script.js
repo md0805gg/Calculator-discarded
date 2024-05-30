@@ -1,18 +1,4 @@
 //current errors:
-// 2 + 2 =   adds 0 to first numberButtons - solved
-// operaton returns undefined - solved
-//I can still add numbers to numberTwo after finishing the operation - solved
-//multiply does not work correctly on multiple number values - solved
-//I can change operator even if the operation is finished - solved
-// Pressing = before habing two numbers down - write down a condition - solved
-// Pressing = with one number and operator selected should utofill second number with number one (4 + 'click =' should give 4 + 4 = 16) - solved
-//Unnecessary if conditonal and console log in the operate function - solved
-//round numbers to 10 decimals max - solved
-//read page for all reqs - solved
-//add '.' button - solved
-//in the operate function, you are using parseInt in order to convert string to numbers. This causes problem
-//when one or two arguments are floating point number, as they get rounded to nearest integer. it does not yield
-//any problem, but it results in a number that is simply wrong - solved
 
 //display value
 let displayValue = document.querySelector('.display p');
