@@ -2,8 +2,7 @@
 //prevent population of the number one and number two with leading zero (fe 02 should be just 2); - solved
 //figure out operations display
 
-//display value
-let displayValue = document.querySelector('.display p');
+//initial
 
 //calculator object
 let calculator = {
@@ -84,11 +83,6 @@ operateButton.addEventListener('click', () => {
   updateDisplayValue();  
 })
 
-//update display value function
-function updateDisplayValue() {
-  displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')} ${calculator.finalValue}`
-};
-
 //operations functions
 function add (a, b) {
   return a + b
@@ -128,6 +122,14 @@ function operate (a, b) {
   };
   return calculator.finalNumber;
 }
+
+//display value
+let displayValue = document.querySelector('.display p');
+
+//update display value function
+function updateDisplayValue() {
+  displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')} ${calculator.finalValue}`
+};
   
 //clear function
 function clearCalculator() {
