@@ -76,9 +76,9 @@ operateButton.addEventListener('click', () => {
   finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
   }
   if ((finalNumber.toString().length > 6) && (typeof(finalNumber) !== 'string')) {
-    calculator.finalValue = `= ${finalNumber.toFixed(6)}`;
+    calculator.finalValue = `${finalNumber.toFixed(6)}`;
   } else {
-    calculator.finalValue = `= ${finalNumber}`;
+    calculator.finalValue = `${finalNumber}`;
   };  
   updateDisplayValue();  
 })
@@ -129,7 +129,23 @@ let displayValueLower = document.querySelector('.display .lower')
 
 //update display value function
 function updateDisplayValue() {
-  displayValueLower.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')} ${calculator.finalValue}`
+  if (calculator.valueTwo.length < 1 && calculator.operator.length == 0) {
+  displayValueLower.textContent = `${calculator.valueOne.join('')}`
+  console.log('a')
+} else if ((calculator.valueOne.length >= 1) && (calculator.operator.length >= 1) && (calculator.valueTwo.length < 1)) {
+  displayValueUpper.textContent = `${calculator.valueOne.join('')} ${calculator.operator}`
+  console.log('b')
+} else if ((calculator.valueOne.length >= 1) && (calculator.operator.length >= 1) && 
+          (calculator.valueTwo.length >= 1) && (calculator.finalValue.length < 1)) {
+  displayValueUpper.textContent = `${calculator.valueOne.join('')} ${calculator.operator}`
+  displayValueLower.textContent = `${calculator.valueTwo.join('')}`
+  console.log('c')
+} else if ((calculator.valueOne.length >= 1) && (calculator.operator.length >= 1) && 
+          (calculator.valueTwo.length >= 1) && (calculator.finalValue.length >= 1)) {
+  displayValueUpper.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')} =`
+  displayValueLower.textContent = `${calculator.finalValue}`     
+}
+  //${calculator.operator} ${calculator.valueTwo.join('')} ${calculator.finalValue}`
 };
   
 //clear function
