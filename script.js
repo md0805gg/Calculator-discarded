@@ -1,4 +1,6 @@
 //current errors:
+//prevent population of the number one and number two with leading zero (fe 02 should be just 2); - solved
+//figure out operations display
 
 //display value
 let displayValue = document.querySelector('.display p');
@@ -26,6 +28,14 @@ dotButton.addEventListener('click', numberPopulate);
 function numberPopulate (event) {
   const button = event.target;
   console.log(event.type);
+  if ((calculator.valueOne.length == 1) && (calculator.valueOne[0] == '0') && (event.target.textContent !== '.') &&
+      (calculator.operator.length == 0)){
+    calculator.valueOne.splice(0,1);
+  };
+  if((calculator.valueTwo.length == 1) && (calculator.valueTwo[0] == '0') && (event.target.textContent !== '.') &&
+      (calculator.operator.length == 0)){
+    calculator.valueOne.splice(0,1);
+  };
   if ((calculator.operator.length == 0) && (calculator.valueTwo.length == 0) && (calculator.finalValue.length < 1)) {
     calculator.valueOne.push(button.textContent);
   } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0 && calculator.finalValue.length == 0)) {
