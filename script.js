@@ -9,10 +9,10 @@
 //Unnecessary if conditonal and console log in the operate function - solved
 //round numbers to 10 decimals max - solved
 //read page for all reqs - solved
-//add '.' button
+//add '.' button - solved
 //in the operate function, you are using parseInt in order to convert string to numbers. This causes problem
 //when one or two arguments are floating point number, as they get rounded to nearest integer. it does not yield
-//any problem, but it results in a number that is simply wrong
+//any problem, but it results in a number that is simply wrong - solved
 
 //display value
 let displayValue = document.querySelector('.display p');
@@ -76,9 +76,9 @@ operateButton.addEventListener('click', () => {
     finalNumber = calculator.valueOne.join('');
   } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length == 0)) {
     calculator.valueTwo.push(calculator.valueOne);
-    finalNumber = operate(parseInt(calculator.valueOne.join('')), parseInt(calculator.valueTwo.join('')));
+    finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
   } else {
-  finalNumber = operate(parseInt(calculator.valueOne.join('')), parseInt(calculator.valueTwo.join('')));
+  finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
   }
   if ((finalNumber.toString().length > 6) && (typeof(finalNumber) !== 'string')) {
     calculator.finalValue = `= ${finalNumber.toFixed(6)}`;
