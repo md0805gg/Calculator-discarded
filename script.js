@@ -124,11 +124,12 @@ function operate (a, b) {
 }
 
 //display value
-let displayValue = document.querySelector('.display p');
+let displayValueUpper = document.querySelector('.display .upper');
+let displayValueLower = document.querySelector('.display .lower')
 
 //update display value function
 function updateDisplayValue() {
-  displayValue.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')} ${calculator.finalValue}`
+  displayValueLower.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')} ${calculator.finalValue}`
 };
   
 //clear function
