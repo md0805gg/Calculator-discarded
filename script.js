@@ -1,7 +1,7 @@
 //current errors:
 //prevent population of the number one and number two with leading zero (fe 02 should be just 2); - solved
-// pressing dot without any number does not populate it with 0 prefix
-// .5 - .85 = NaN
+// pressing dot without any number does not populate it with 0 prefix - solved
+// .5 - .85 = NaN - solved
 //figure out operations display
 
 //initial
@@ -35,6 +35,12 @@ function numberPopulate (event) {
   if((calculator.valueTwo.length == 1) && (calculator.valueTwo[0] == '0') && (event.target.textContent !== '.') &&
       (calculator.operator.length == 0)){
     calculator.valueOne.splice(0,1);
+  };
+  if((calculator.valueOne.length == 0)  && (event.target.textContent == '.')) {
+    calculator.valueOne.unshift(0);
+  };
+  if((calculator.operator.length > 0) && (calculator.valueTwo.length == 0)  && (event.target.textContent == '.')) {
+    calculator.valueTwo.unshift(0);
   };
   if ((calculator.operator.length == 0) && (calculator.valueTwo.length == 0) && (calculator.finalValue.length < 1)) {
     calculator.valueOne.push(button.textContent);
