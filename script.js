@@ -23,29 +23,6 @@ let dotButton = document.querySelector('.button-dot');
 
 dotButton.addEventListener('click', numberPopulate);
 
-//populate display with numbers/dot function
-function numberPopulate (event) {
-  const button = event.target;
-  console.log(event.type);
-  if ((calculator.valueOne.length == 1) && (calculator.valueOne[0] == '0') && (event.target.textContent !== '.') &&
-      (calculator.operator.length == 0)){
-    calculator.valueOne.splice(0,1);
-  };
-  if((calculator.valueTwo.length == 1) && (calculator.valueTwo[0] == '0') && (event.target.textContent !== '.') &&
-      (calculator.operator.length == 0)){
-    calculator.valueOne.splice(0,1);
-  };
-  if ((calculator.operator.length == 0) && (calculator.valueTwo.length == 0) && (calculator.finalValue.length < 1)) {
-    calculator.valueOne.push(button.textContent);
-  } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0 && calculator.finalValue.length == 0)) {
-    calculator.valueTwo.push(button.textContent); 
-  } else if (((calculator.valueOne.length > 0) && (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)) ||
-    ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0))) {
-   return;
-  }
-  updateDisplayValue();
-}
-
 //operator buttons event listener
 let operatorButtons = document.querySelectorAll('.button-operator');
 
@@ -121,6 +98,29 @@ function operate (a, b) {
       break;
   };
   return calculator.finalNumber;
+}
+
+//populate display with numbers/dot function
+function numberPopulate (event) {
+  const button = event.target;
+  console.log(event.type);
+  if ((calculator.valueOne.length == 1) && (calculator.valueOne[0] == '0') && (event.target.textContent !== '.') &&
+      (calculator.operator.length == 0)){
+    calculator.valueOne.splice(0,1);
+  };
+  if((calculator.valueTwo.length == 1) && (calculator.valueTwo[0] == '0') && (event.target.textContent !== '.') &&
+      (calculator.operator.length == 0)){
+    calculator.valueOne.splice(0,1);
+  };
+  if ((calculator.operator.length == 0) && (calculator.valueTwo.length == 0) && (calculator.finalValue.length < 1)) {
+    calculator.valueOne.push(button.textContent);
+  } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0 && calculator.finalValue.length == 0)) {
+    calculator.valueTwo.push(button.textContent); 
+  } else if (((calculator.valueOne.length > 0) && (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)) ||
+    ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0))) {
+   return;
+  }
+  updateDisplayValue();
 }
 
 //display value
