@@ -103,7 +103,6 @@ function operate (a, b) {
 //populate display with numbers/dot function
 function numberPopulate (event) {
   const button = event.target;
-  console.log(event.type);
   if ((calculator.valueOne.length == 1) && (calculator.valueOne[0] == '0') && (event.target.textContent !== '.') &&
       (calculator.operator.length == 0)){
     calculator.valueOne.splice(0,1);
@@ -131,15 +130,12 @@ let displayValueLower = document.querySelector('.display .lower')
 function updateDisplayValue() {
   if (calculator.valueTwo.length < 1 && calculator.operator.length == 0) {
   displayValueLower.textContent = `${calculator.valueOne.join('')}`
-  console.log('a')
 } else if ((calculator.valueOne.length >= 1) && (calculator.operator.length >= 1) && (calculator.valueTwo.length < 1)) {
   displayValueUpper.textContent = `${calculator.valueOne.join('')} ${calculator.operator}`
-  console.log('b')
 } else if ((calculator.valueOne.length >= 1) && (calculator.operator.length >= 1) && 
           (calculator.valueTwo.length >= 1) && (calculator.finalValue.length < 1)) {
   displayValueUpper.textContent = `${calculator.valueOne.join('')} ${calculator.operator}`
   displayValueLower.textContent = `${calculator.valueTwo.join('')}`
-  console.log('c')
 } else if ((calculator.valueOne.length >= 1) && (calculator.operator.length >= 1) && 
           (calculator.valueTwo.length >= 1) && (calculator.finalValue.length >= 1)) {
   displayValueUpper.textContent = `${calculator.valueOne.join('')} ${calculator.operator} ${calculator.valueTwo.join('')} =`
