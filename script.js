@@ -148,8 +148,11 @@ let displayValueLower = document.querySelector('.display .lower')
 
 //update display value function
 function updateDisplayValue() {
-  if (calculator.valueTwo.length < 1 && calculator.operator.length == 0) {
-  displayValueLower.textContent = `${calculator.valueOne.join('')}`
+  if ((calculator.valueTwo.length == 0) && (calculator.operator.length == 0) && (calculator.valueTwo.length == 0) &&
+      (calculator.finalValue.length == 0)) {
+  displayValueUpper.textContent = `${calculator.operator} ${calculator.valueTwo.join('')}
+  ${calculator.finalValue}`;
+  displayValueLower.textContent = `${calculator.valueOne.join('')}`;
 } else if ((calculator.valueOne.length >= 1) && (calculator.operator.length >= 1) && (calculator.valueTwo.length < 1)) {
   displayValueUpper.textContent = `${calculator.valueOne.join('')} ${calculator.operator}`
 } else if ((calculator.valueOne.length >= 1) && (calculator.operator.length >= 1) && 
