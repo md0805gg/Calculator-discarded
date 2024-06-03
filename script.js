@@ -80,24 +80,29 @@ button.addEventListener('click', () => {
 //operate button event listener
 let operateButton = document.querySelector('.button-operate');
 
+
+// click operate-butt -> eventList -> operateFunc
+//
+
+
 operateButton.addEventListener('click', () => {
   if ((calculator.valueOne.length > 0) && (calculator.operator.length == 0) && (calculator.valueTwo.length == 0)){
-    finalNumber = calculator.valueOne.join('');
+    calculator.finalValue = calculator.valueOne.join('');
   } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length == 0)) {
     calculator.valueTwo.push(calculator.valueOne);
-    finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
+    calculator.finalValue = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
   } else if((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0) && 
             (calculator.finalValue.length) > 0) {
     calculator.valueOne.splice(0,calculator.valueOne.length);
     calculator.valueOne.push(calculator.finalValue);
-    finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
+    calculator.finalValue = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
   } else {
-  finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
+    calculator.finalValue = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
   }
-  if ((finalNumber.toString().length > 6) && (typeof(finalNumber) !== 'string')) {
-    calculator.finalValue = `${finalNumber.toFixed(6)}`;
+  if ((calculator.finalValue.toString().length > 6) && (typeof(finalNumber) !== 'string')) {
+    calculator.finalValue.toFixed(6);
   } else {
-    calculator.finalValue = `${finalNumber}`;
+    calculator.finalValue;
   };  
   updateDisplayValue();  
 })
@@ -127,19 +132,14 @@ function operate (a, b) {
   operator = calculator.operator;
   switch (operator) {
     case '+':
-      calculator.finalNumber = add (a, b);
-      break;
+      return add (a, b);
     case '-':
-      calculator.finalNumber = subtract (a, b);
-      break;
+      return subtract (a, b);
     case '*':
-      calculator.finalNumber = multiply (a, b);
-      break;
+      return multiply (a, b);
     case '/':
-      calculator.finalNumber = divide (a, b);
-      break;
+      return divide (a, b);
   };
-  return calculator.finalNumber;
 }
 
 //display query selectors
