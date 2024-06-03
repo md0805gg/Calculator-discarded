@@ -61,8 +61,15 @@ button.addEventListener('click', () => {
   if ((calculator.operator.length == 0) && (calculator.valueOne.length < 1)) {
   calculator.valueOne.push(0);
   } else if (((calculator.valueOne.length > 0) && (calculator.valueTwo.length == 0) && calculator.finalValue > 0) ||
-    ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0))) {
+    ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0)) && 
+    (calculator.finalValue.length == 0)) {
     return;
+  } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0) && 
+  (calculator.finalValue.length) > 0) {
+    calculator.valueOne.splice(0,calculator.valueOne.length);
+    calculator.valueOne.push(calculator.finalValue);
+    calculator.valueTwo.splice(0,calculator.valueTwo.length)
+    calculator.operator = button.textContent;
   } else {
   calculator.operator = button.textContent;
   }
