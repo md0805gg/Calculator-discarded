@@ -79,6 +79,11 @@ operateButton.addEventListener('click', () => {
   } else if ((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length == 0)) {
     calculator.valueTwo.push(calculator.valueOne);
     finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
+  } else if((calculator.valueOne.length > 0) && (calculator.operator.length > 0) && (calculator.valueTwo.length > 0) && 
+            (calculator.finalValue.length) > 0) {
+    calculator.valueOne.splice(0,calculator.valueOne.length);
+    calculator.valueOne.push(calculator.finalValue);
+    finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
   } else {
   finalNumber = operate(+`${(calculator.valueOne.join(''))}`, +`${(calculator.valueTwo.join(''))}`);
   }
